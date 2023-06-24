@@ -1,0 +1,22 @@
+<h2 class="px-4">Product Details</h2>
+<div class="card m-5">
+  <div *ngIf="product">
+    <h3 class="px-3 text-decoration-underline">{{ product.name }}</h3>
+    <h4 class="px-3">Price: {{ product.price | currency }}</h4>
+    <p class="px-3">{{ product.description }}</p>
+    <p class="px-3">Type: {{ product.type }} </p>
+    <p class="px-3">
+      <button class="tag btn" [class.btn-danger]="!product.availab" [class.btn-success]="product.availab">
+        Available: {{ product.availab ? 'Yes' : 'No' }}
+      </button>
+    </p>
+    <img src="{{ product.imageReal }}" style="height:200px" class="p-3" alt="">
+    <br>
+    <button class="btn btn-primary m-3" (click)="addToCart()" [disabled]="!product.availab"><i
+        class="fa-solid fa-cart-arrow-down fa-beat"></i> Buy
+      me</button>
+    <button type="button" class="btn btn-info btn-sm" routerLink="/menu"><i
+        class="fa-solid fa-circle-arrow-left fa-shake"></i> Go
+      back</button>
+  </div>
+</div>

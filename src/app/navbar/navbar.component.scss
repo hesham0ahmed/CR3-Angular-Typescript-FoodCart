@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css?family=Parisienne&display=swap');
+
+.navbar-brand {
+  font-family: 'Parisienne';
+  font-weight: 500;
+  font-size: xx-large;
+  transition: 0.2s;
+
+  &:hover {
+    transform: scale(1.02);
+    transform: rotate(10deg);
+  }
+}
+
+.nav-link {
+  transition: 0.2s;
+  transform: scale(1);
+
+  &:hover {
+    font-style: oblique;
+    font-size: 20px;
+    transform: rotate(5deg);
+
+  }
+}

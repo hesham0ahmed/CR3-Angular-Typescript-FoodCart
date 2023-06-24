@@ -1,0 +1,57 @@
+<body class="all">
+  <hr>
+  <h2>BUON APPETITO</h2>
+  <!-- start -->
+  <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xs-1">
+    <div *ngFor="let product of products; let productId = index">
+      <a class="card" routerLink="/products/[]" style="--bg-img: url({{product.image}})">
+        <div>
+          <a routerLink="products/{{productId}}">
+            {{ product.name }}
+          </a>
+          <p id="pSmall">{{ product.descriptionsmall }}</p>
+          <div class="tags">
+            <button class="tag" [ngClass]="{'btn-danger': !product.availab, 'btn-success': product.availab}">availabe:
+              {{ product.availab ? 'Yes' : 'No'}}
+            </button>
+            <div class="created">
+            </div>
+          </div>
+          <h4 class="mt-3">Price: {{product.price}} $</h4>
+          <br><a routerLink="products/{{productId}}" class="btn btn-outline-primary">Details</a>
+          <button class="btn btn-primary m-3" (click)="addToCart(productId)" [disabled]="!product.availab"><i
+              class="fa-solid fa-cart-arrow-down fa-beat"></i>
+            Add to cart</button>
+        </div>
+      </a>
+    </div>
+  </div>
+</body>
+<!-- end -->
+
+<!-- index will refer to the index of the element, productId is just a parameter name that you can change if you want, but
+you need to change it in the app.routing.module.ts -->
+
+<!-- <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 row-cols-xs-1">
+    <div *ngFor="let product of products ; index as productId">
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+
+          <h3 class="card-title">
+            <a routerLink="products/{{productId}}">
+              {{ product.name }}
+            </a>
+          </h3>
+          <p *ngIf="product.description">
+            {{ product.description }}
+            <br><img src="{{product.image}}" style="height: 70px; width: 100px; margin: 20px" alt="">
+            <br><a routerLink="products/{{productId}}" class="btn btn-primary">Details</a>
+            <button class="btn btn-primary m-3" (click)="addToCart()">Add to cart</button>
+          </p>
+
+          <p>Price: {{product.price}} $</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body> -->
